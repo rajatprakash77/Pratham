@@ -10,12 +10,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@SpringBootApplication
+
 @RestController
 public class DemoApplication {
-	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
-	}
 
 	private JdbcTemplate jdbcTemplate;
 	//@GetMapping("/")
@@ -23,9 +20,9 @@ public class DemoApplication {
 		return "hello rajat!";
 	}*/
     public DemoApplication(JdbcTemplate jdbcTemplate){this.jdbcTemplate =jdbcTemplate;}
-	@GetMapping("/getTuples")
+	@GetMapping("/")
 	public List<String> getTuples() {
-		return this.jdbcTemplate.queryForList("SELECT * FROM users").stream()
+		return this.jdbcTemplate.queryForList("SELECT * FROM user_details").stream()
 				.map((m) -> m.values().toString())
 				.collect(Collectors.toList());
 	}
