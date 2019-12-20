@@ -15,12 +15,12 @@ import java.util.stream.Collectors;
 public class DemoApplication {
 
 	private JdbcTemplate jdbcTemplate;
-	//@GetMapping("/")
-	/*public String hello() {
-		return "hello rajat!";
-	}*/
-    public DemoApplication(JdbcTemplate jdbcTemplate){this.jdbcTemplate =jdbcTemplate;}
 	@GetMapping("/")
+	public String hello() {
+		return "hello rajat!";
+	}
+    public DemoApplication(JdbcTemplate jdbcTemplate){this.jdbcTemplate =jdbcTemplate;}
+	@GetMapping("/getlist")
 	public List<String> getTuples() {
 		return this.jdbcTemplate.queryForList("SELECT * FROM user_details").stream()
 				.map((m) -> m.values().toString())
