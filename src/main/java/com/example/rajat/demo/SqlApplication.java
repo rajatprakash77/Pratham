@@ -8,6 +8,8 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 public class SqlApplication {
     public static void main(String[] args) {
+
         SpringApplication.run(SqlApplication.class, args);
+	System.out.println("\nmy application started");
     }
 }
